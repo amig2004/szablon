@@ -1,0 +1,87 @@
+$menu-width: 240px
+$transition-settings: ease 0.5s
+
+body
+  margin: 0 0
+
+  #menu-toggle
+    display: none
+
+  .container
+    display: inline-block
+
+    .navigation-root
+      width: $menu-width
+      height: 100vh
+      background-color: #1a4e8b
+      padding-top: 10px
+      margin-left: -240px
+      position: sticky
+
+      transition: $transition-settings
+      nav
+        ul
+          margin: 0
+          padding: 0
+          list-style-type: none
+          width: 100%
+          li
+            height: 40px
+            width: 100%
+            padding-top: 10px
+            a
+              display: block
+              padding-left: 30px
+              width: 100%
+              height: 40px
+              text-decoration: none
+              font-size: 25px
+              font-family: sans-serif
+              color: white
+
+          li:hover
+            background-color: #2a5e9b
+
+    .main
+      width: 90%
+      max-width: 1200px
+      margin: auto
+      float: left
+      transition: $transition-settings
+
+    .toggle-btn
+      display: block
+      margin-left: 10px
+      transition: $transition-settings
+    .bar
+      display: block
+      width: 30px
+      height: 5px
+      margin: 5px 0px
+      background-color: #000000
+
+    .container
+
+
+
+  .toggle:checked ~ .container > .navigation-root
+    margin-left: 0
+
+  .toggle:checked ~ .container > .main
+    margin-left: $menu-width
+
+    label
+      .bar:nth-of-type(1)
+        transform-origin: right
+        transform: rotate(-45deg)
+
+        transition: $transition-settings
+
+      .bar:nth-of-type(2)
+        opacity: 0
+        transition: $transition-settings
+
+      .bar:nth-of-type(3)
+        transform-origin: right
+        transform: rotate(45deg)
+        transition: $transition-settings

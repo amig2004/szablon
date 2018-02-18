@@ -1,22 +1,28 @@
 $menu-width: 240px
 $transition-settings: ease 0.5s
+$text-size: 16px
 
 body
   margin: 0 0
+  scroll: auto
+  overflow-x: hidden
 
   #menu-toggle
     display: none
 
-  .container
-    display: inline-block
+  .overcontainer
 
     .navigation-root
+      float: left
+      position: fixed
+      top: 0px
+      left: 0px
       width: $menu-width
       height: 100vh
-      background-color: #1a4e8b
+      background-color: #2c3e50
       padding-top: 10px
       margin-left: -240px
-      position: sticky
+
 
       transition: $transition-settings
       nav
@@ -40,37 +46,89 @@ body
               color: white
 
           li:hover
-            background-color: #2a5e9b
+            background-color: #3c4e60
 
     .main
-      width: 90%
-      max-width: 1200px
-      margin: auto
-      float: left
+      width: 100vw
       transition: $transition-settings
+      margin: 0
+
+
+      .toggle-btn
+        display: inline-block
+        position: fixed
+        top: 10px
+        left: 10px
+        margin-left: 10px
+        transition: $transition-settings
+        cursor: pointer
+
+      .bar
+        display: block
+        width: 30px
+        height: 5px
+        margin: 5px 0px
+        background-color: #000000
+        transition: $transition-settings
+
+      .article
+        width: 90%
+        max-width: 1200px
+        display: block
+        margin: 0 auto
+        text-align: justify
+        font-family: sans-serif
+        font-size: 16px
+
+        .main-pic
+          width: 100%
+          max-height: 450px
+          object-fit: cover
+          margin: 0 auto
+
+        h1
+          letter-spacing: 2px
+
+        h3
+          display: inline
+          a
+            text-decoration: none
+            color: #1b7196
+
+        .separator
+          display: block
+          width: 240px
+          height: 1px
+          background-color: #222222
+          margin-top: 15px
+          margin-bottom: 10px
+
+        p
+          margin-top: 10px
+          margin-bottom: 10px
+          font-size: $text-size
+          line-height: $text-size + 5px
+
+        .picture
+          width: 100%
+          object-fit: cover
+
+
+
+
+
+  .toggle:checked ~ .overcontainer > .navigation-root
+    margin-left: 0
+    transition: $transition-settings
+
+  .toggle:checked ~ .overcontainer > .main
+    margin-left: $menu-width
+    transition: $transition-settings
 
     .toggle-btn
-      display: block
-      margin-left: 10px
-      transition: $transition-settings
-    .bar
-      display: block
-      width: 30px
-      height: 5px
-      margin: 5px 0px
-      background-color: #000000
+      position: fixed
+      left: $menu-width + 10px
 
-    .container
-
-
-
-  .toggle:checked ~ .container > .navigation-root
-    margin-left: 0
-
-  .toggle:checked ~ .container > .main
-    margin-left: $menu-width
-
-    label
       .bar:nth-of-type(1)
         transform-origin: right
         transform: rotate(-45deg)
